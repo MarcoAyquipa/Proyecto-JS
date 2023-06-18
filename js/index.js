@@ -9,7 +9,7 @@ console.log('Nombre, Apellido y Edad: ' + nombre + ' ' + apellido + ', ' + edad 
 }
 
 //algoritmo utilizando un ciclo do-while
-let cuadras = parseInt(prompt('Ingrese numero: '))
+let cuadras = Number(prompt('Ingrese numero: '))
 for (let i = 1; i <= 6; i++){
     let resultado = cuadras + i
     alert(cuadras + '+' + i + '=' + resultado )
