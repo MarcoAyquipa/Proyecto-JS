@@ -1,3 +1,4 @@
+//Segunda pre-entrega
 const productos = [
     {id: 1 , nombre: 'Naranja', precio: 300},
     {id: 2 , nombre: 'Mandarina', precio: 450},
@@ -63,8 +64,6 @@ while (compra != 'no') {
         break;
     }
 }
-
-
 
 const total = miCarrito.reduce((acc,el)=> acc + el.precio * el.cantidad, 0)
 alert(`Precio final de la compra:$ ${total}`)
