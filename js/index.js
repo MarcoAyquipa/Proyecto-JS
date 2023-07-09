@@ -1,52 +1,71 @@
-//algoritmo con condicional 
-let nombre = prompt('Ingrese su nombre')
-let apellido = prompt('Ingrese su apellido')
-let edad = prompt('Ingrese su edad en numeros')
-if ((nombre !== '') && (apellido !== '') && (edad !== '') ){
-console.log('Nombre, Apellido y Edad: ' + nombre + ' ' + apellido + ', ' + edad + ' años')
-}else{
-    console.log('Error: Datos no validos')
+const productos = [
+    {id: 1 , nombre: 'Naranja', precio: 300},
+    {id: 2 , nombre: 'Mandarina', precio: 450},
+    {id: 3 , nombre: 'Durazno', precio: 800 },
+    {id: 4 , nombre: 'Pera', precio: 480}
+];
+let miCarrito = []
+
+alert('Bienvenidos a tienda vitual')
+let compra = prompt('Desea continuar con la compra (si/no)')
+while (compra != 'si' && compra !='no') {
+    alert('Ingrese si o no')
+    compra = prompt('Desea continuar con la compra (si/no)')
+}
+if(compra == 'si'){
+    alert('A continuacion le aparecera la lista de los productos en stock con sus respectivos precios por kg')
+    let todosProductos = productos.map((producto)=>producto.id+ '.' + producto.nombre + '$' + producto.precio)
+    alert(todosProductos.join('  '))
+}else if(compra == 'no'){
+    alert('Gracias por visitarnos, esperamos vuelva pronto')
 }
 
-//algoritmo utilizando un ciclo do-while
-let cuadras = Number(prompt('Ingrese numero: '))
-for (let i = 1; i <= 6; i++){
-    let resultado = cuadras + i
-    alert(cuadras + '+' + i + '=' + resultado )
-}
+while (compra != 'no') {
+    let productoSeleccionado = prompt('Ingrese nombre del producto: ') 
+    let precio = 0
 
+    if( productoSeleccionado == 'Naranja'|| productoSeleccionado == 'Mandarina' || productoSeleccionado == 'Durazno' || productoSeleccionado == 'Pera'){
+        switch (productoSeleccionado) {
+            case 'Naranja':
+                precio = 300;
+                break;
 
-//simulador interactivo - carrito de compra
-alert('Seleccione el producto deseado, ingrese 0 para salir')
-let elegirProductos = Number(prompt('1-manzana $800 el kg 2-frutilla $1200 el kg 3-naranja $300 el kg'))
-let elegirCantidad;
-let total = 0
+            case 'Mandarina':
+                precio = 450;
+                break;
+        
+            case 'Durazno':
+                precio = 800;
+                break;
 
-const cantidad = (cant, precio) =>{
-    return cant * precio
-}
-
-while(elegirProductos !== 0){
-    switch (elegirProductos) {
-        case 1:
-            elegirCantidad = Number(prompt('El producto seleccionado es manzana,  indique la cantidad de kg'))
-            total += cantidad(elegirCantidad, 800)
-            break;
+            case 'Pera':
+                precio = 480;
+                break;
             
-        case 2:
-            elegirCantidad = Number(prompt('El producto seleccionado es frutilla,  indique la cantidad de kg'))
-            total += cantidad(elegirCantidad, 1200)
-            break;
+            default:
+                break;
+        }
+    let cantidad = parseInt(prompt('Elegir cantidad del producto a llevar'))
 
-        case 3:
-            elegirCantidad = Number(prompt('El producto seleccionado es naranja,  indique la cantidad de kg'))
-            total += cantidad(elegirCantidad, 300)
-        break;
-
-        default:
-            alert('opcion incorrecta')
-            break;
+    miCarrito.push({productoSeleccionado, cantidad, precio})
+    console.log(miCarrito);
+    }else{
+        alert('Produto no disponible')
     }
-    elegirProductos = Number(prompt('1-manzana $800 el kg 2-frutilla $1200 el kg 3-naranja $300 el kg'))
+
+    compra = prompt('Desea continuar con la compra?')
+    while (compra == 'no') {
+        alert('Gracias por su compra')
+        miCarrito.forEach((totalCarrito)=> {
+            console.log(`Producto: ${totalCarrito.productoSeleccionado}, Precio: ${totalCarrito.precio}, Cantidad: ${totalCarrito.cantidad}, Total a pagar por producto: ${totalCarrito.cantidad * totalCarrito.precio}`)
+            alert(`Producto: ${totalCarrito.productoSeleccionado}, Precio: ${totalCarrito.precio}, Cantidad: ${totalCarrito.cantidad}, Total a pagar por producto: ${totalCarrito.cantidad * totalCarrito.precio}`)
+        })
+        break;
+    }
 }
-alert('El total de la compra es: ' + total)
+
+
+
+const total = miCarrito.reduce((acc,el)=> acc + el.precio * el.cantidad, 0)
+alert(`Precio final de la compra: ${total}`)
+console.log(`Precio final de la compra: ${total}`)
