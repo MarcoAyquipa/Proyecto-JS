@@ -57,8 +57,8 @@ while (compra != 'no') {
     while (compra == 'no') {
         alert('Gracias por su compra')
         miCarrito.forEach((totalCarrito)=> {
-            console.log(`Producto: ${totalCarrito.productoSeleccionado}, Precio: ${totalCarrito.precio}, Cantidad: ${totalCarrito.cantidad}, Total a pagar por producto: ${totalCarrito.cantidad * totalCarrito.precio}`)
-            alert(`Producto: ${totalCarrito.productoSeleccionado}, Precio: ${totalCarrito.precio}, Cantidad: ${totalCarrito.cantidad}, Total a pagar por producto: ${totalCarrito.cantidad * totalCarrito.precio}`)
+            console.log(`Producto: ${totalCarrito.productoSeleccionado}, Precio:$ ${totalCarrito.precio}, Cantidad: ${totalCarrito.cantidad}kg, Total a pagar por producto:$ ${totalCarrito.cantidad * totalCarrito.precio}`)
+            alert(`Producto: ${totalCarrito.productoSeleccionado}, Precio:$ ${totalCarrito.precio}, Cantidad: ${totalCarrito.cantidad}kg, Total a pagar por producto:$ ${totalCarrito.cantidad * totalCarrito.precio}`)
         })
         break;
     }
@@ -67,5 +67,5 @@ while (compra != 'no') {
 
 
 const total = miCarrito.reduce((acc,el)=> acc + el.precio * el.cantidad, 0)
-alert(`Precio final de la compra: ${total}`)
-console.log(`Precio final de la compra: ${total}`)
+alert(`Precio final de la compra:$ ${total}`)
+console.log(`Precio final de la compra:$ ${total}`)
