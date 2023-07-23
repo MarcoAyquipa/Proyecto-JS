@@ -27,7 +27,7 @@ productos.forEach((product)=>{
     comprar.addEventListener('click', ()=> {
     carrito.push({
         id: product.id,
-        img: product.img,
+        imagen: product.imagen,
         nombre: product.nombre,
         precio: product.precio,
     })
@@ -36,6 +36,8 @@ productos.forEach((product)=>{
     saveLocal()
 })
 })
+
+
 
 //guardando en el localStorage
 const saveLocal = () => {
