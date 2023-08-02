@@ -12,7 +12,9 @@ verCarrito.addEventListener('click', () => {
     <h1>Carrito</h1>
     `
     modalContainer.appendChild(modalHeader)
-    
+
+    modalContainer.innerHTML = "";
+
     carrito.forEach((product) => {
         let carritoContent = document.createElement('div')
         carritoContent.className = "card"

@@ -1,10 +1,8 @@
 import { productos} from "./productos.js"
-import { agregarCarrito } from "./pruebas.js"
 
 
 //traigo section de HTML
 const misProductos = document.getElementById("misProductos")
-
 
 
 let carrito = JSON.parse(localStorage.getItem('carrito')) || []
