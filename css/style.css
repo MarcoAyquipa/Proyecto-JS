@@ -1729,13 +1729,74 @@ footer {
       width: 35px;
       height: 30px; } }
 
-    .imagenes {
-      width: 300px;
-      height: 150px;
-      display: flex;
-      flex-direction: column;
+      .img {
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+      }
+      .carritoContent {
+        display: flex;
+        flex-direction: row;
+        margin: 20px;
+        gap: 20px;
+        font-size: 30px;
+      }
+      .carritoContent p{
+        margin-top: 60px;
+      }
+      .botonEliminar{
+        font-size: 20px;
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: rgba(255, 47, 47, 0.891);
+        margin-left: 20px;
+        margin-top: 60px;
+      }
+      .total{
+        text-align: center;
+        color: #2F962D;
+        font-size: 35px;
+      }
       
-      text-align: center;
+      .contactos{
+        font-size: 30px;
+      }
+      .botonRestar{
+        font-size: 20px;
+        width: 50px;
+        height: 40px;
+        border-radius: 10px;
+        background-color:gainsboro;
+        margin-top: 60px;
+      }
+      .botonSumar{
+        font-size: 20px;
+        width: 50px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: gainsboro;
+        margin-top: 60px;
+      }
 
+      .carritoContent {
+        display: flex;
+        flex-direction: row;
+        margin: 20px;
+        gap: 125px;
+        font-size: 30px;
+      }
 
-    }
+      .contactos{
+        font-size: 30px;
+      }
+
+      .miCarrito{
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        margin-left: 300px;
+        gap: 180px;
+        font-size: 30px;
+        color: gray;
+      }

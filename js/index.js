@@ -1,14 +1,15 @@
-import { productos} from "./productos.js"
-
-
 //traigo section de HTML
 const misProductos = document.getElementById("misProductos")
 
 
 let carrito = JSON.parse(localStorage.getItem('carrito')) || []
 
-//creando nuevo elemento
-productos.forEach((product)=>{
+const getProducts = async() => {
+    const response = await fetch('/data/productos.json')
+    const data = await response.json()
+
+    //creando nuevo elemento
+data.forEach((product)=>{
     let contenedor = document.createElement('div')
     contenedor.className = "card"
     contenedor.innerHTML = `
@@ -23,19 +24,36 @@ productos.forEach((product)=>{
     contenedor.appendChild(comprar)
 
     comprar.addEventListener('click', ()=> {
-    carrito.push({
-        id: product.id,
-        imagen: product.imagen,
-        nombre: product.nombre,
-        precio: product.precio,
+        Swal.fire({
+            title: 'Agregado al carrito',
+            icon: 'success',
+            iconColor: '#2f962db8',
+            color: '#2f962db8',
+            showConfirmButton: false,
+            timer: 1000
+        })
+    const repeat = carrito.some((repeatProduct) => repeatProduct.id === product.id)
+    if(repeat){
+        carrito.map((prod) => {
+            if(prod.id === product.id){
+                prod.cantidad++
+            }
+        })
+    }else{
+        carrito.push({
+            id: product.id,
+            imagen: product.imagen,
+            nombre: product.nombre,
+            precio: product.precio,
+            cantidad: product.cantidad,
+        })
+        
+        }
+        saveLocal()
     })
-    console.log(carrito)
-    alert('añadido al carrito')
-    saveLocal()
 })
-})
-
-
+}
+getProducts()
 
 //guardando en el localStorage
 const saveLocal = () => {
